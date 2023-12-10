@@ -39,6 +39,7 @@ module pwm_top(
     .d3(d3),
     .d4(d4)
     );
+    
     pwm_gen pwm_mod(
     .bit1(d1),
     .bit2(d2),

@@ -26,7 +26,7 @@ output slw_clk
     );
 reg [23:0] clk_counter = 0 ;
 reg clk_reg = 0;
-parameter pressure = 220000;
+parameter pressure = 119900;
 always @ (posedge clk_in)
 begin
    clk_counter = clk_counter + 1;
@@ -36,7 +36,7 @@ begin
     end
     clk_reg <= (clk_counter < (pressure / 2)  ) ? 1 : 0;
 end
-
+//reg buffer = clk_reg;
 
 assign slw_clk = clk_reg;
 

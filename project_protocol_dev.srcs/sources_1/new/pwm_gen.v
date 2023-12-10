@@ -26,6 +26,7 @@ module pwm_gen(
         input bit3,
         input bit4,
         input clk_in,
+        //input slw_clk_in,
         output pwm_out
     );
     reg [3:0] input_reg;

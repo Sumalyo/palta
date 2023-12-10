@@ -28,13 +28,42 @@ module input_handler(
     output wire d3,
     output wire d4
     );
-    reg [3:0] data_store;
+    //reg [3:0] data_store;
+    reg  data_store_1 = 0;
+    reg  data_store_2 = 0;
+    reg  data_store_3 = 0;
+    reg  data_store_4 = 0;
     always @ (posedge clk_in)
     begin
-    data_store = {data_store[2:0],data};
+    if (data == 1)
+    //data_store = {data_store[1],data_store[2],data_store[3],1'b1};
+    begin
+    data_store_1 <= data_store_2;
+    data_store_2 <= data_store_3;
+    data_store_3 <= data_store_4;
+    data_store_4 <= 1'b1;
     end
-    assign d1 = data_store[0];
-    assign d2 = data_store[1];
-    assign d3 = data_store[2];
-    assign d4 = data_store[3];
+    else
+    begin
+    data_store_1 <= data_store_2;
+    data_store_2 <= data_store_3;
+    data_store_3 <= data_store_4;
+    data_store_4 <= 1'b0;
+    end
+    //data_store = {data_store[1],data_store[2],data_store[3],1'b0};
+    //data_store = {data_store[2:0],data};
+    //data_store[
+//    data_store_1 <= data_store_2;
+//    data_store_2 <= data_store_3;
+//    data_store_3 <= data_store_4;
+//    data_store_4 <= data;
+    end
+    assign d1 = data_store_1;
+    assign d2 = data_store_2;
+    assign d3 = data_store_3;
+    assign d4 = data_store_4;
+//    assign d1 = data_store[0];
+//    assign d2 = data_store[1];
+//    assign d3 = data_store[2];
+//    assign d4 = data_store[3];
 endmodule

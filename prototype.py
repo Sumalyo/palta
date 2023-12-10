@@ -1,3 +1,10 @@
+import time
+import board
+import digitalio
+
+data_out = digitalio.DigitalInOut(board.GP0)
+data_out.direction = digitalio.Direction.OUTPUT
+
 global x
 global n
 

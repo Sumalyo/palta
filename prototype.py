@@ -1,15 +1,22 @@
-
 global x
 global n
-f = 50
-x = [0,1,1,0]
-n = len(x)
-def sendNext():
-    # N = N + 1 mod n
-    # Return x[n]
-    pass
-while True:
-    # Send a bit on a GPIO
-    # wait for 1/f seconds 
-    pass
 
+x = [1,0,0,1]
+n = len(x)
+f = 50 # input frequency
+m = 0
+
+def dataNext(n):
+    n = (n+1) % n
+    return x[n]
+
+while True:
+    m = (m + 1) % n
+    b = x[m]
+    if b==1:
+        print('Line High')
+        data_out.value = True
+    else:
+        print('Line Low')
+        data_out.value = False
+    time.sleep(0.01)

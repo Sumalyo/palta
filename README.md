@@ -1,1 +1,3 @@
 # Palta
+## Contributors
+- Sayantan Pal

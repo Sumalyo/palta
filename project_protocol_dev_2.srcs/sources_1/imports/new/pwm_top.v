@@ -22,6 +22,7 @@
 
 module pwm_top(
         input wire pio1,
+        input wire pio3,
         input clk,
         output wire pio2
     );
@@ -34,6 +35,7 @@ module pwm_top(
     input_handler input_mod(
     .data(pio1),
     .clk_in(slow_clock),
+    .ctrl_in(pio3),
     .d1(d1),
     .d2(d2),
     .d3(d3),
